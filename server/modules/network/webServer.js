@@ -43,11 +43,14 @@ server = require('http').createServer((req, res) => {
             resStr = JSON.stringify({ gameMode: c.gameModeName, players: views.length });
             break;
         case "/serverData.json":
+            const hostname = process.env.RENDER_EXTERNAL_HOSTNAME || c.host.split(":")[0];
+            const port = process.env.PORT || c.port;
             resStr = JSON.stringify({
                 ip: process.env.RENDER_EXTERNAL_HOSTNAME
-                    ? `wss://${process.env.RENDER_EXTERNAL_HOSTNAME}` // Render uses default port 443 for HTTPS/WSS
-                    : `ws://${c.host}:${c.port}`
+                    ? `wss://${hostname}`  // Render uses port 443, no need to add
+                    : `ws://${hostname}:${port}`
             });
+
             break;
         default:
             let fileToGet = path.join(publicRoot, req.url);
