@@ -2,9 +2,16 @@ const path = require('path');
 const fs = require('fs');
 
 Error.stackTraceLimit = Infinity;
-let enviroment = require('./lib/dotenv.js')(fs.readFileSync(path.join(__dirname, '../.env')).toString());
-for (let key in enviroment) {
-    process.env[key] = enviroment[key];
+const envPath = path.join(__dirname, '../.env');
+
+if (fs.existsSync(envPath)) {
+    let enviroment = require('./lib/dotenv.js')(
+        fs.readFileSync(envPath).toString()
+    );
+
+    for (let key in enviroment) {
+        process.env[key] = enviroment[key];
+    }
 }
 const GLOBAL = require("./modules/global.js");
 
