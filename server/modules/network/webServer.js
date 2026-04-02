@@ -44,7 +44,9 @@ server = require('http').createServer((req, res) => {
             break;
         case "/serverData.json":
             resStr = JSON.stringify({
-                ip: process.env.RENDER_EXTERNAL_HOSTNAME || c.host
+                ip: process.env.RENDER_EXTERNAL_HOSTNAME
+                    ? `wss://${process.env.RENDER_EXTERNAL_HOSTNAME}`
+                    : c.host
             });
             break;
         default:
