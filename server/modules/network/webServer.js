@@ -45,8 +45,8 @@ server = require('http').createServer((req, res) => {
         case "/serverData.json":
             resStr = JSON.stringify({
                 ip: process.env.RENDER_EXTERNAL_HOSTNAME
-                    ? `wss://${process.env.RENDER_EXTERNAL_HOSTNAME}`
-                    : c.host
+                    ? `wss://${process.env.RENDER_EXTERNAL_HOSTNAME}` // Render uses default port 443 for HTTPS/WSS
+                    : `ws://${c.host}:${c.port}`
             });
             break;
         default:
