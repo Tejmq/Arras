@@ -1,12 +1,11 @@
 module.exports = {
-    // Open Source Arras
     version: 'v2.0.11.3',
     devBuild: false,
 
     // Client
     main_menu: 'index.html',
-    host: '0.0.0.0',             // Bind to all interfaces
-    port: process.env.PORT,       // MUST use Render's dynamic port
+    host: '0.0.0.0',            // Bind to all interfaces
+    port: process.env.PORT,      // Use Render's dynamic port
 
     // Server
     visible_list_interval: 250,
@@ -18,7 +17,7 @@ module.exports = {
         {
             share_client_server: false,
             host: '0.0.0.0',
-            port: process.env.PORT, // MUST use Render's dynamic port
+            port: process.env.PORT, // Use the same Render port
             id: 'main',
             region: "Global",
             gamemode: ['ffa'],      // default gamemode
