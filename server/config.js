@@ -5,22 +5,21 @@ module.exports = {
     // Client
     main_menu: 'index.html',
     host: '0.0.0.0',
-    port: process.env.PORT, // use dynamic port from Render
+    port: process.env.PORT, // Render provides this dynamically
 
     // Server
     visible_list_interval: 250,
     startup_logs: true,
     load_all_mockups: false,
 
-    // Only one server to prevent EADDRINUSE
     servers: [
         {
             share_client_server: false,
             host: '0.0.0.0',
             port: process.env.PORT,
-            id: 'main', // single server
+            id: 'main',           // single server
             region: "Local",
-            gamemode: ['arms_race', 'siege'],
+            gamemode: ['arms_race', 'siege'], // enabled gamemodes
             player_cap: 80,
             featured: false,
             unlisted: false,
@@ -107,7 +106,8 @@ module.exports = {
     brain_damage: false,
     random_body_colors: false,
 
-    // Enabled gamemodes
+    gamemode_name_prefixes: [],
+    arena_shape: 'rect',
     arms_race: true,
     siege: true,
     blackout: false,
