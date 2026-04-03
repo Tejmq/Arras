@@ -5,8 +5,8 @@ module.exports = {
 
     // Client
     main_menu: 'index.html', // Where the main menu is located (in the /public folder).
-    host: 'localhost:3000', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
-    port: 3000, // Which port to run the web server on.
+    host: 'arras-vpzf.onrender.com', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
+    port: process.env.PORT || 26301, // Which port to run the web server on.
 
     // Server
     visible_list_interval: 250, // How often to update the list of the entities that players can see. Has effects of when entities are activated.
