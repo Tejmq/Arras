@@ -5,8 +5,8 @@ module.exports = {
 
     // Client
     main_menu: 'index.html', // Where the main menu is located (in the /public folder).
-    host: 'arras-vpzf.onrender.com', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
-    port: process.env.PORT || 26301, // Which port to run the web server on.
+    host: '0.0.0.0', // Game server domain. If the host is 'localhost:NUMBER', the NUMBER must be the port setting.
+    port: process.env.PORT, // Which port to run the web server on.
 
     // Server
     visible_list_interval: 250, // How often to update the list of the entities that players can see. Has effects of when entities are activated.
@@ -19,8 +19,8 @@ module.exports = {
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
-            host: 'localhost:3001', // Server host location.
-            port: 3001, // The port on the server.
+            host: '0.0.0.0', // Server host location.
+            port: process.env.PORT, // The port on the server.
             id: 'la', // (<host>/#<id>)
 
             region: "Local", // The region the server is on.
@@ -41,8 +41,8 @@ module.exports = {
             // The above is required if your VM (the machine that hosts the website stuff) doesn't support multi-ports and forces everything through the main server.
             // This also overrides the below host and port settings to be identical to the main server's host/port (by default, 3000).
 
-            host: 'localhost:3002', // Server host location.
-            port: 3002, // The port on the server.
+            host: '0.0.0.0', // Server host location.
+            port: process.env.PORT, // The port on the server.
             id: 'lb', // (<host>/#<id>)
 
             region: "Local", // The region the server is on.
