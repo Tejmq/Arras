@@ -3,7 +3,7 @@ module.exports = {
 
     // Game server domain.
     // If 'localhost:NUMBER', the port must equal the port setting.
-    host: "arrasq.onrender.com",
+    host: "arras-vpzf.onrender.com",
 
     // Which port to run the web server on.
     port: process.env.PORT || 26301,
