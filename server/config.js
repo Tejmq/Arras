@@ -5,7 +5,7 @@ module.exports = {
     // Client
     main_menu: 'index.html',
     host: '0.0.0.0',
-    port: process.env.PORT, // Render provides this dynamically
+    port: process.env.PORT, // Use Render's dynamic port
 
     // Server
     visible_list_interval: 250,
@@ -17,9 +17,9 @@ module.exports = {
             share_client_server: false,
             host: '0.0.0.0',
             port: process.env.PORT,
-            id: 'main',           // single server
+            id: 'main',
             region: "Local",
-            gamemode: ['arms_race', 'siege'], // enabled gamemodes
+            gamemode: ['ffa'],          // base gamemode only
             player_cap: 80,
             featured: false,
             unlisted: false,
@@ -27,7 +27,8 @@ module.exports = {
             properties: {
                 teams: 4,
                 bot_cap: 0,
-            }
+            },
+            modifiers: ['arms_race'], // modifiers go here
         }
     ],
 
@@ -108,8 +109,8 @@ module.exports = {
 
     gamemode_name_prefixes: [],
     arena_shape: 'rect',
-    arms_race: true,
-    siege: true,
+    arms_race: true, // enabled via modifier
+    siege: true,     // enabled via modifier
     blackout: false,
     clan_wars: false,
     diep: false,
