@@ -5,8 +5,8 @@ module.exports = {
 
     // Client
     main_menu: 'index.html',
-    host: '0.0.0.0',             // Bind to all interfaces
-    port: process.env.PORT || 3000, // Render assigns the port
+    host: '0.0.0.0',                 // Bind to all interfaces
+    port: process.env.PORT || 3000,  // Render assigns the port dynamically
 
     // Server
     visible_list_interval: 250,
@@ -18,10 +18,10 @@ module.exports = {
         {
             share_client_server: false,
             host: '0.0.0.0',
-            port: process.env.PORT || 3000,
+            port: process.env.PORT || 3000, // Must use Render's assigned port
             id: 'main',
             region: "Global",
-            gamemode: ['ffa'], // You can pick your default gamemode
+            gamemode: ['ffa'],  // Default gamemode
             player_cap: 80,
             featured: false,
             unlisted: false,
@@ -33,13 +33,18 @@ module.exports = {
         }
     ],
 
+    // Web Server
     allow_ACAO: false,
+
+    // Map
     map_tile_width: 420,
     map_tile_height: 420,
 
+    // Player messages
     spawn_message: "You have spawned! Welcome to the game.\nYou will be invulnerable until you move or shoot.\nPlease report any bugs you encounter!",
     token_message: "Friendly reminder: Please do not repeatedly kill others with an overpowered tank.",
 
+    // Chat settings
     chat_message_duration: 15_000,
     popup_message_duration: 10_000,
     sanitize_chat_input: true,
@@ -69,6 +74,7 @@ module.exports = {
     tier_cap: 17,
     tier_multiplier: 15,
 
+    // Bots
     bot_cap: 0,
     bot_xp_gain: 60,
     bot_start_level: 45,
@@ -78,20 +84,22 @@ module.exports = {
     spawn_class: 'basic',
     regenerate_tick: 100,
 
+    // Food
     enable_food: true,
     food_cap: 70,
     food_cap_nest: 15,
     enemy_cap_nest: 10,
     food_group_cap: 6,
-
-    food_types: [], // keep default
+    food_types: [],
     food_types_nest: [],
 
+    // Classic food
     classic_food: false,
     classic_food_types: [],
     classic_food_types_nest: [],
     classic_enemy_types_nest: [],
 
+    // Bosses
     enable_bosses: true,
     boss_spawn_cooldown: 260,
     boss_spawn_delay: 6,
