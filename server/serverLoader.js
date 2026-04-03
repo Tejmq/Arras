@@ -1,16 +1,19 @@
-const { workerData, parentPort } = require("worker_threads");
+const GLOBAL = require("./loaders/loader.js");
+const { gameServer } = require("./game.js");
+const config = require("./config.js");
 
-// Load required game components
-let GLOBAL = require("./loaders/loader.js");
-// Create the game server
-new (require("./game.js").gameServer)(
-    workerData.host,
-    workerData.port,
-    workerData.gamemode,
-    workerData.region,
-    workerData.webProperties,
-    workerData.properties,
-    workerData.isFeatured,
-    parentPort,
+// Only load the first server
+const srv = config.servers[0];
+
+// Start the server
+new gameServer(
+    srv.host,
+    srv.port,
+    srv.gamemode,
+    srv.region,
+    srv.properties, // webProperties
+    srv.properties, // server properties
+    srv.featured,
+    null, // parentPort not needed for single-threaded
     GLOBAL
 );
