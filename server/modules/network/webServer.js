@@ -43,14 +43,7 @@ server = require('http').createServer((req, res) => {
             resStr = JSON.stringify({ gameMode: c.gameModeName, players: views.length });
             break;
         case "/serverData.json":
-            const hostname = process.env.RENDER_EXTERNAL_HOSTNAME || c.host.split(":")[0];
-            const port = process.env.PORT || c.port;
-            resStr = JSON.stringify({
-                ip: process.env.RENDER_EXTERNAL_HOSTNAME
-                    ? `wss://${hostname}`  // Render uses port 443, no need to add
-                    : `ws://${hostname}:${port}`
-            });
-
+            resStr = JSON.stringify({ ip: c.host });
             break;
         default:
             let fileToGet = path.join(publicRoot, req.url);
@@ -70,9 +63,5 @@ server = require('http').createServer((req, res) => {
     res.end(resStr);
 });
 server.on('upgrade', (req, socket, head) => wsServer.handleUpgrade(req, socket, head, ws => sockets.connect(ws, req)));
-const PORT = process.env.PORT || c.port;
-
-server.listen(PORT, '0.0.0.0', () => {
-    console.log("Server listening on port", PORT);
-});
+server.listen(c.port, () => console.log("Server listening on port", c.port));
 module.exports = { server };

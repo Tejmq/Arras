@@ -3,10 +3,10 @@ module.exports = {
 
     // Game server domain.
     // If 'localhost:NUMBER', the port must equal the port setting.
-    host: process.env.RENDER_EXTERNAL_HOSTNAME || "localhost:26301",
+    host: "localhost:26301",
 
     // Which port to run the web server on.
-    port: process.env.PORT || 26301,
+    port: 26301,
 
     // How often to update the list of the entities that players can see.
     // Has effects of when entities are activated.
